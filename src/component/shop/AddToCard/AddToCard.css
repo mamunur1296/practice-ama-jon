@@ -1,0 +1,6 @@
+.card-container{
+        position: sticky;
+            top: 0;
+            padding: 20px;
+            padding-top: 5px;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToCard } from '../../utilities/utilities';
 import AddToCard from './AddToCard/AddToCard';
 import CardGroup from './cird-group/CardGroup';
 import './Shop.css';
@@ -14,7 +15,7 @@ const Shop = () => {
     const HendalAddToCard = (cards) => {
         const newCard = [...card, cards];
         setCard(newCard);
-        console.log(newCard);
+        addToCard(cards.id);
     };
     return (
         <div className='shop-container container' >
@@ -28,7 +29,6 @@ const Shop = () => {
                 }
             </div>
             <div>
-                <h1> cird </h1>
                 <AddToCard
                     card={card}
                 ></AddToCard>

@@ -6,9 +6,11 @@ const AddToCard = ({ card }) => {
     let charge = 0;
     let tax = 0;
     let total = 0;
+    let quantity = 0;
     for (const prices of card) {
-        price = price + prices.price
-        charge = charge + prices.shipping;
+        quantity = quantity + prices.quantity;
+        price = price + prices.price * prices.quantity;
+        charge = charge + prices.shipping * prices.quantity;
         tax = price * 0.1;
         total = price + charge + tax;
     }
@@ -16,7 +18,7 @@ const AddToCard = ({ card }) => {
     return (
         <div className='card-container'>
             <h4>Order Summary</h4>
-            <p>Selected Items: {card.length}</p>
+            <p>Selected Items: {quantity}</p>
             <p>Total Price: ${price}</p>
             <p>Total Shipping Charge: ${charge}</p>
             <p>Tax: ${taxNew}</p>
